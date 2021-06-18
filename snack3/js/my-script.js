@@ -41,6 +41,8 @@ for(let x = 0; x < teams.length; x++){
     const {nome, punti_fatti , falli_subiti} = teams[x];
     ArrayTeams[x] = {nome, punti_fatti, falli_subiti};
 }
+
+
 console.log(teams);
 console.log(ArrayTeams);
 
@@ -58,6 +60,15 @@ for (var x = 0; x < teams.length; x++) {
         <li>${falli_subiti}</li>
     </ul>
     `
+    let team_fouls;
+    let team_last_foul = 0;
 
-    
+    for(let z = 0; z < teams.length; z++){
+       let fouls = teams[z].falli_subiti;
+       if(fouls > team_last_foul){
+        team_fouls = teams[x];
+        team_last_foul = fouls;
+       }
+    }
+    console.log(team_fouls)
 }
