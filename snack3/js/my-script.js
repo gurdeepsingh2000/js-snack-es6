@@ -10,7 +10,6 @@ Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengo
 */
 
 
-
 const teams = [{
     nome: 'Roma',
     punti_fatti: 0,
@@ -46,6 +45,18 @@ for(let x = 0; x < teams.length; x++){
 console.log(teams);
 console.log(ArrayTeams);
 
+let team_fouls;
+let team_last_foul = 0;
+
+for(let z = 0; z < teams.length; z++){
+   let fouls = teams[z].falli_subiti;
+   if(fouls > team_last_foul){
+    team_fouls = teams[z];
+    team_last_foul = fouls;
+   }
+   console.log(team_fouls)
+}
+
 
 
 var tableHTML = document.querySelector('.table-container');
@@ -60,15 +71,11 @@ for (var x = 0; x < teams.length; x++) {
         <li>${falli_subiti}</li>
     </ul>
     `
-    let team_fouls;
-    let team_last_foul = 0;
+}
 
-    for(let z = 0; z < teams.length; z++){
-       let fouls = teams[z].falli_subiti;
-       if(fouls > team_last_foul){
-        team_fouls = teams[x];
-        team_last_foul = fouls;
-       }
+
+for(var n = 0; n < teams.length; n++){
+    if(team_fouls === teams[n]){
+        document.querySelector(".table-container > ul > li.last-child").style.backgroundColor='yellow'
     }
-    console.log(team_fouls)
 }
