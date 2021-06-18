@@ -57,8 +57,6 @@ for(let z = 0; z < teams.length; z++){
    console.log(team_fouls)
 }
 
-
-
 var tableHTML = document.querySelector('.table-container');
 
 for (var x = 0; x < teams.length; x++) {
@@ -71,11 +69,8 @@ for (var x = 0; x < teams.length; x++) {
         <li>${falli_subiti}</li>
     </ul>
     `
-}
 
-
-for(var n = 0; n < teams.length; n++){
-    if(team_fouls === teams[n]){
-        document.querySelector(".table-container > ul > li.last-child").style.backgroundColor='yellow'
+    if(teams[x] === team_fouls){
+        document.getElementsByTagName("ul")[x + 1].style.backgroundColor = "yellow"
     }
 }
